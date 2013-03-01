@@ -9,7 +9,7 @@
  *//**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  *
- * @since Shape 1.0
+ * @since vStandard 1.0
  */
 function vstandard_page_menu_args($args){
     $args['show_home'] = true;
@@ -29,7 +29,7 @@ function vstandard_body_classes($classes){
     }
     return $classes;
 }
-add_filter('body_class','vshape_body_classes');
+add_filter('body_class','vstandard_body_classes');
  
 /**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
