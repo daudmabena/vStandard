@@ -72,3 +72,34 @@ function vstandard_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'vstandard_widgets_init' );
+/**
+ * Setup the WordPress core custom background feature.
+ *
+ * Use add_theme_support to register support for WordPress 3.4+
+ * as well as provide backward compatibility for previous versions.
+ * Use feature detection of wp_get_theme() which was introduced
+ * in WordPress 3.4.
+ *
+ * Hooks into the after_setup_theme action.
+ *
+ */
+function vstandard_register_custom_background() {
+    $args = array(
+        'default-color' => 'e9e0d1',
+    );
+ 
+    $args = apply_filters('vstandard_custom_background_args', $args);
+ 
+    if(function_exists('wp_get_theme')){
+        add_theme_support('custom-background',$args);
+    }else{
+        define('BACKGROUND_COLOR', $args['default-color']);
+        define('BACKGROUND_IMAGE', $args['default-image']);
+        add_custom_background();
+    }
+}
+add_action('after_setup_theme', 'vstandard_register_custom_background');
+/**
+ * Implement the Custom Header feature
+ */
+require(get_template_directory() . '/includes/custom-header.php');
