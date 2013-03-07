@@ -85,7 +85,7 @@ add_action( 'widgets_init', 'vstandard_widgets_init' );
  */
 function vstandard_register_custom_background() {
     $args = array(
-        'default-color' => 'e9e0d1',
+        'default-color' => 'EFEFEF',
     );
  
     $args = apply_filters('vstandard_custom_background_args', $args);

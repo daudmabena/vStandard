@@ -59,12 +59,12 @@
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 						<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" />
 					</a>
-<?php } // if ( ! empty( $header_image ) ) 
-?>
-         		<nav role="navigation" class="site-navigation main-navigation">
-     				<h1 class="assistive-text"><?php _e('Menu','vsandard'); ?></h1>
-     				<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e('Skip to content', 'shape'); ?>"><?php _e('Skip to content', 'shape'); ?></a></div>
-     				<?php wp_nav_menu(array('theme_location' => 'primary')); ?>
-				</nav><!-- .site-navigation .main-navigation -->
+				<?php 
+				} // if ( ! empty( $header_image ) )
+				?>
+				<nav role="navigation" class="site-navigation main-navigation">
+     				<?php wp_nav_menu(); ?>
+				</nav>
+				<!-- .site-navigation .main-navigation -->
      		</header><!-- #masthead .site-header -->
 			<div id="main" class="site-main">

@@ -16,7 +16,7 @@ get_header(); ?>
 				<div id="primary" class="content-area">
 					<div id="content" class="site-content" role="main">
 						<?php if(have_posts()) : ?>
-							<?php vstandard_content_nav('nav-above'); ?>
+							<?php //vstandard_content_nav('nav-above'); ?>
 							<?php /* Start the Loop */ ?>
 							<?php while (have_posts()) : the_post(); ?>
 								<?php get_template_part('content', get_post_format());	?>
