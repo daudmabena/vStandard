@@ -94,11 +94,18 @@ textarea {
 	font-family: Arial,Helvetica,sans-serif;
 	font-size: 14px;
 	font-size: 1.6rem;
-	line-height: 1.5;
+	line-height: 1.5em;
 }
 
 body {
 	background: #EFEFEF;
+	-moz-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-smoothing: antialiased;
+	line-height: 1.5em;
+	text-rendering: optimizeLegibility;
 }
 
 /* Headings */
@@ -139,10 +146,17 @@ hr {
 	height: 1px;
 	margin-bottom: 1.5em;
 }
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{font-weight:700;}
 
 /* Text elements */
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 1.6em;
+	word-wrap:break-word;
+	display: block;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
 }
 ul, ol {
 	margin: 0 0 1.5em 3em;
@@ -326,7 +340,8 @@ textarea {
 /* Links */
 a,
 a:visited {
-	color: #748a81;
+	color: #06c;
+	font-weight:400;
 	text-decoration: none;
 	transition: all .3s ease-in-out;
 	-webkit-transition: all .3s ease-in-out;
@@ -335,9 +350,15 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-	color: #33605a;
+	color: #444;
+	outline:0;
+	text-decoration:none;
 }
-
+::selection {
+	background: #999;
+    color: #fff;
+	text-shadow: none;
+}
 /* Alignment */
 .alignleft {
 	display: inline;
@@ -381,7 +402,8 @@ a:active {
 
 /* =Structure
 ----------------------------------------------- */
-
+.post-meta{color:#9F9F9F;font-size:12px;}
+.breadcrumb-list{font-size:12px;}
 #main,
 .main-navigation,
 .site-title,
@@ -406,7 +428,6 @@ a:active {
 #secondary,
 #tertiary {
    	float: right;
-   	margin: 1em 1em 0;
     padding: 2em 2em 0;
     position: relative;
     width: 20%;
@@ -548,7 +569,7 @@ a:active {
     -moz-border-radius: 4px;
     border: 1px solid #e5e5e5;
 	border-radius: 4px;
-	margin: 0 0 20px;
+	margin: 40px 20px 20px 0;
 	padding: 20px;
 }
 .site-main {
@@ -570,6 +591,16 @@ a:active {
 }
 .entry-title a {
 	text-decoration: none;
+}
+.post-data {
+	clear: both;
+	font-size: 12px;
+	font-weight: 700;
+	margin-top: 20px;
+}
+
+.post-data a {
+	color: #111;
 }
 body.search .page-title,
 body.archive .page-title {

@@ -12,7 +12,7 @@
  * @since vStandard 1.0
  */
  
-get_header(); ?>	
+get_header(); ?>
 				<div id="primary" class="content-area">
 					<?php echo vstandard_breadcrumb_lists(); ?>
 					<div id="content" class="site-content" role="main">

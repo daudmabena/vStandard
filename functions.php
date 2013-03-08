@@ -103,3 +103,148 @@ add_action('after_setup_theme', 'vstandard_register_custom_background');
  * Implement the Custom Header feature
  */
 require(get_template_directory() . '/includes/custom-header.php');
+
+function vstandard_breadcrumb_lists() {
+  
+    $chevron = '<span class="chevron">&#8250;</span>';
+    $home = __('Home','vstandard'); // text for the 'Home' link
+    $before = '<span class="breadcrumb-current">'; // tag before the current crumb
+    $after = '</span>'; // tag after the current crumb
+ 
+        if ( !is_home() && !is_front_page() || is_paged() ) {
+ 
+            echo '<div class="breadcrumb-list">';
+ 
+            global $post;
+            $homeLink = home_url();
+            
+			echo '<a href="' . $homeLink . '">' . $home . '</a> ' . $chevron . ' ';
+ 
+        if ( is_category() ) {
+            global $wp_query;
+			
+            $cat_obj = $wp_query->get_queried_object();
+            $thisCat = $cat_obj->term_id;
+            $thisCat = get_category($thisCat);
+            $parentCat = get_category($thisCat->parent);
+      
+	  if ($thisCat->parent != 0) echo(get_category_parents($parentCat, TRUE, ' ' . $chevron . ' '));
+      
+	      echo $before; printf( __( 'Archive for %s', 'vstandard' ), single_cat_title('', false) ); $after;
+ 
+      } elseif ( is_day() ) {
+      
+	      echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $chevron . ' ';
+          echo '<a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $chevron . ' ';
+          echo $before . get_the_time('d') . $after;
+ 
+      } elseif ( is_month() ) {
+     
+	      echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $chevron . ' ';
+          echo $before . get_the_time('F') . $after;
+ 
+      } elseif ( is_year() ) {
+		  
+          echo $before . get_the_time('Y') . $after;
+ 
+      } elseif ( is_single() && !is_attachment() ) {
+      
+	  if ( get_post_type() != 'post' ) {
+          $post_type = get_post_type_object(get_post_type());
+          $slug = $post_type->rewrite;
+        
+		  echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a> ' . $chevron . ' ';
+          echo $before . get_the_title() . $after;
+		  
+      } else {
+		  
+          $cat = get_the_category(); $cat = $cat[0];
+          
+		  echo get_category_parents($cat, TRUE, ' ' . $chevron . ' ');
+          echo $before . get_the_title() . $after;
+      }
+ 
+      } elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
+      
+	      $post_type = get_post_type_object(get_post_type());
+          
+		  echo $before . $post_type->labels->singular_name . $after;
+ 
+      } elseif ( is_attachment() ) {
+      
+	      $parent = get_post($post->post_parent);
+          $cat = get_the_category($parent->ID); $cat = $cat[0];
+      
+	      echo get_category_parents($cat, TRUE, ' ' . $chevron . ' ');
+          echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a> ' . $chevron . ' ';
+          echo $before . get_the_title() . $after;
+ 
+      } elseif ( is_page() && !$post->post_parent ) {
+          
+		  echo $before . get_the_title() . $after;
+ 
+      } elseif ( is_page() && $post->post_parent ) {
+      
+	      $parent_id  = $post->post_parent;
+          $breadcrumbs = array();
+      
+	  while ($parent_id) {
+          $page = get_page($parent_id);
+          $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+          $parent_id  = $page->post_parent;
+      }
+	  
+          $breadcrumbs = array_reverse($breadcrumbs);
+      
+	  foreach ($breadcrumbs as $crumb) echo $crumb . ' ' . $chevron . ' ';
+	  
+          echo $before . get_the_title() . $after;
+ 
+      } elseif ( is_search() ) {
+          
+		  echo $before; printf( __( 'Search results for: %s', 'vstandard' ), get_search_query() ); $after;
+ 
+      } elseif ( is_tag() ) {
+          
+		  echo $before; printf( __( 'Posts tagged %s', 'vstandard' ), single_tag_title('', false) ); $after;
+ 
+      } elseif ( is_author() ) {
+          
+		  global $author;
+      
+	      $userdata = get_userdata($author);
+          
+		  echo $before; printf( __( 'View all posts by %s', 'vstandard' ), $userdata->display_name ); $after;
+ 
+      } elseif ( is_404() ) {
+          echo $before . __('Error 404 ','vstandard') . $after;
+      }
+ 
+      if ( get_query_var('paged') ) {
+      if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ' (';
+      
+	      echo __('Page','vstandard') . ' ' . get_query_var('paged');
+      
+	  if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
+      }
+ 
+        echo '</div>';
+ 
+      }
+    }
+function vstandard_post_meta_data() {
+	printf( __( '<span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span> by %4$s', 'vstandard' ),
+	'meta-prep meta-prep-author posted', 
+	sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="timestamp">%3$s</span></a>',
+		get_permalink(),
+		esc_attr( get_the_time() ),
+		get_the_date()
+	),
+	'byline',
+	sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
+		get_author_posts_url( get_the_author_meta( 'ID' ) ),
+		sprintf( esc_attr__( 'View all posts by %s', 'vstandard' ), get_the_author() ),
+		get_the_author()
+	    )
+	);
+}
