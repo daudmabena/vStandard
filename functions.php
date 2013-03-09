@@ -248,3 +248,40 @@ function vstandard_post_meta_data() {
 	    )
 	);
 }
+/**
+ * Sets the post excerpt length to 40 words.
+ * Adopted from Coraline
+ */
+function vstandard_excerpt_length($length) {
+    return 40;
+}
+
+add_filter('excerpt_length', 'vstandard_excerpt_length');
+
+/**
+ * Returns a "Read more" link for excerpts
+ */
+function vstandard_read_more() {
+    return '<div class="read-more"><a href="' . get_permalink() . '">' . __('Read more &#8250;', 'vstandard') . '</a></div><!-- end of .read-more -->';
+}
+
+/**
+ * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and vstandard_read_more_link().
+ */
+function vstandard_auto_excerpt_more($more) {
+    return '<span class="ellipsis">&hellip;</span>' . vstandard_read_more();
+}
+
+add_filter('excerpt_more', 'vstandard_auto_excerpt_more');
+
+/**
+ * Adds a pretty "Read more" link to custom post excerpts.
+ */
+function vstandard_custom_excerpt_more($output) {
+    if (has_excerpt() && !is_attachment()) {
+        $output .= vstandard_read_more();
+    }
+    return $output;
+}
+
+add_filter('get_the_excerpt', 'vstandard_custom_excerpt_more');
