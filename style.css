@@ -409,7 +409,7 @@ a:active {
 .site-title,
 .site-description {
     margin: 0 auto;
-	max-width: 1050px;
+	max-width: 960px;
 }
 #main {
 	margin:20px auto;
@@ -552,6 +552,47 @@ a:active {
 
 /* =Content
 ----------------------------------------------- */
+.grid {
+    float: left;
+    margin-bottom: 2.12766%;
+    padding-top: 0;
+}
+.col-300 {
+    width: 31.9149%;
+}
+.col-60, .col-140, .col-220, .col-300, .col-380, .col-460, .col-540, .col-620, .col-700, .col-780, .col-860{
+	display:inline;
+	margin-right:2.12766%;
+}
+.home #widgets {
+    margin-top: 0;
+    width: 100%;
+}
+.fit {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.widget-wrapper {
+    background-color: #F9F9F9;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px 4px 4px 4px;
+    margin: 0 0 20px;
+    padding: 20px;
+    position: relative;
+}
+.home #main {
+    background-color: transparent;
+    border: medium none;
+    margin: 20px auto;
+    padding: 0;
+}
+#featured {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px 4px 4px 4px;
+    padding-bottom: 40px;
+    width: 99.8936%;
+}
 .menu .current_page_item a, .menu .current-menu-item a {
     background-color: #343434;
 }

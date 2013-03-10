@@ -13,20 +13,9 @@
  */
  
 get_header(); ?>
-				<div id="primary" class="content-area">
-					<?php echo vstandard_breadcrumb_lists(); ?>
-					<div id="content" class="site-content" role="main">
-						<?php if(have_posts()) : ?>
-							<?php //vstandard_content_nav('nav-above'); ?>
-							<?php /* Start the Loop */ ?>
-							<?php while (have_posts()) : the_post(); ?>
-								<?php get_template_part('content', get_post_format());	?>
-							<?php endwhile; ?>
-							<?php vstandard_content_nav('nav-below'); ?>
-						<?php else : ?>
-     						<?php get_template_part('no-results','index'); ?>
-						<?php endif; ?>
-					</div><!-- #content .site-content -->
-				</div><!-- #primary .content-area -->
-<?php get_sidebar(); ?>
+				 <div id="featured" class="grid col-940">
+				 	<div class="grid col-460">
+				 	</div><!-- end of .col-460 -->
+				 </div><!-- end of #featured -->
+<?php get_sidebar('home'); ?>
 <?php get_footer(); ?>

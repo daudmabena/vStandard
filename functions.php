@@ -70,6 +70,36 @@ function vstandard_widgets_init() {
         'before_title' => '<h1 class="widget-title">',
         'after_title' => '</h1>',
     ) );
+	
+	register_sidebar(array(
+            'name' => __('Home Widget 1', 'vstandard'),
+            'description' => __('Area 6 - sidebar-home.php', 'vstandard'),
+            'id' => 'home-widget-1',
+            'before_title' => '<div id="widget-title-one" class="widget-title-home"><h3>',
+            'after_title' => '</h3></div>',
+            'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
+            'after_widget' => '</div>'
+        ));
+
+        register_sidebar(array(
+            'name' => __('Home Widget 2', 'vstandard'),
+            'description' => __('Area 7 - sidebar-home.php', 'vstandard'),
+            'id' => 'home-widget-2',
+            'before_title' => '<div id="widget-title-two" class="widget-title-home"><h3>',
+            'after_title' => '</h3></div>',
+            'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
+            'after_widget' => '</div>'
+        ));
+
+        register_sidebar(array(
+            'name' => __('Home Widget 3', 'vstandard'),
+            'description' => __('Area 8 - sidebar-home.php', 'vstandard'),
+            'id' => 'home-widget-3',
+            'before_title' => '<div id="widget-title-three" class="widget-title-home"><h3>',
+            'after_title' => '</h3></div>',
+            'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
+            'after_widget' => '</div>'
+        ));
 }
 add_action( 'widgets_init', 'vstandard_widgets_init' );
 /**
@@ -285,3 +315,15 @@ function vstandard_custom_excerpt_more($output) {
 }
 
 add_filter('get_the_excerpt', 'vstandard_custom_excerpt_more');
+function vstandard_widgets() {
+    do_action('vstandard_widgets');
+}
+
+/**
+ * Just after closing </div><!-- end of #widgets -->
+ *
+ * @see sidebar.php
+ */
+function vstandard_widgets_end() {
+    do_action('vstandard_widgets_end');
+}
