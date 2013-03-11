@@ -133,7 +133,7 @@ add_action('after_setup_theme', 'vstandard_register_custom_background');
  * Implement the Custom Header feature
  */
 require(get_template_directory() . '/includes/custom-header.php');
-
+//Adjusted from Dimos
 function vstandard_breadcrumb_lists() {
   
     $chevron = '<span class="chevron">&#8250;</span>';
