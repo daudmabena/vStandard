@@ -327,3 +327,57 @@ function vstandard_widgets() {
 function vstandard_widgets_end() {
     do_action('vstandard_widgets_end');
 }
+function vstandard_customize_register($wp_customize) {
+	$wp_customize->add_section(
+	// ID
+	'layout_section',
+	// Arguments array
+	array(
+		'title' => __( 'Layout', 'vstandard' ),
+		'capability' => 'edit_theme_options',
+		'description' => __( 'Allows you to edit your theme\'s layout.', 'vstandard' )
+		)
+	);
+	$wp_customize->add_setting(
+	// ID
+	'vstandard_settings[layout_setting]',
+	// Arguments array
+	array(
+		'default' => 'content-sidebar',
+		'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+	// ID
+	'layout_control',
+	// Arguments array
+	array(
+		'type' => 'radio',
+		'label' => __( 'Theme layout', 'vstandard' ),
+		'section' => 'layout_section',
+		'choices' => array(
+			'content-sidebar' =>         __('Content Sidebar', 'vstandard'),
+			'content-sidebar-sidebar' => __('Content Sidebar Sidebar', 'vstandard'),
+			'sidebar-content' =>         __('Sidebar Content', 'vstandard'),
+			'sidebar-content-sidebar' => __('Sidebar Content Sidebar', 'vstandard'),
+			'sidebar-sidebar-content' => __('Sidebar Sidebar Content', 'vstandard')
+			),
+		// This last one must match setting ID from above
+		'settings' => 'vstandard_settings[layout_setting]'
+		)
+	);
+}
+add_action('customize_register', 'vstandard_customize_register');
+add_filter( 'body_class', 'my_theme_body_classes' );
+function my_theme_body_classes($classes) {
+
+	/*
+	 * Since we used 'option' in add_setting arguments array
+	 * we retrieve the value by using get_option function
+	 */
+	$vstandard_settings = get_option( 'vstandard_settings' );	
+	$classes[] = $vstandard_settings['layout_setting'];
+	
+	return $classes;
+
+}

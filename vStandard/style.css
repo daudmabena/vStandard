@@ -86,7 +86,7 @@ a:hover,a:focus,a:active{color:#444;outline:0;text-decoration:none;}
 .site-title,.entry-title,.page-title,.entry-content,.entry-summary,.widget-title,.comments-title,.comment .reply,.comment-meta,.comment-author,#reply-title{font-family:Arial,Helvetica,sans-serif;}
 /* =Site Header
 ----------------------------------------------- */
-.site-header hgroup{background:#EFEFEF;padding:1.5em 2em;}
+.site-header hgroup{padding:1.5em 2em;}
 .site-title{font-size:45px;font-size:4.5rem;}
 .site-description{font-size:13px;font-size:1.3rem;}
 .site-title a,.site-description{color:#333;}
@@ -258,10 +258,27 @@ p.nocomments{margin:2.5em;}
 .widget-area ul, .widget-area ol{margin:0;padding:0 0 0 20px;font-size:14px;}
 /* =Structure
 ----------------------------------------------- */
-#main,.main-navigation,.site-title,.site-description{margin:0 auto;max-width:960px;}
-#main{margin:20px auto;clear:both;overflow:hidden;}
-#primary{float:left;margin:0 -27% 0 0;padding:2em;width:90%;}
-#content{margin:0 27% 0 0;}
-#secondary,#tertiary{float:right;position:relative;width:20%;}
-#tertiary{}
-.site-footer{clear:both;width:100%;}
+/* Content-Sidebar */
+.content-sidebar #main,.main-navigation,.site-title,.site-description{margin:0 auto;max-width:960px;}
+.content-sidebar #main{margin:20px auto;clear:both;overflow:hidden;}
+.content-sidebar #primary{float:left;margin:0 -27% 0 0;padding:2em;width:90%;}
+.content-sidebar #content{margin:0 27% 0 0;}
+.content-sidebar #secondary,#tertiary{float:right;position:relative;width:20%;}
+.content-sidebar #tertiary{}
+.content-sidebar .site-footer{clear:both;width:100%;}
+/* Content-Sidebar-Sidebar */
+.content-sidebar-sidebar #main,.main-navigation,.site-title,.site-description{margin:0 auto;max-width:960px;}
+.content-sidebar-sidebar #main{margin:20px auto;clear:both;overflow:hidden;}
+.content-sidebar-sidebar #primary{float: left;padding:2em;width:41%}
+.content-sidebar-sidebar #main .widget-area{float: left;overflow: hidden;width: 20%;}
+.content-sidebar-sidebar #secondary{float:left;}
+.content-sidebar-sidebar #tertiary{float:left;}
+.content-sidebar-sidebar .site-footer{clear: both;width: 100%;}
+/* Sidebar-Content */
+.sidebar-content #main,.main-navigation,.site-title,.site-description{margin:0 auto;max-width:960px;}
+.sidebar-content #main{margin:20px auto;clear:both;overflow:hidden;}
+.sidebar-content #primary{padding:2em;}
+.sidebar-content #content{float: right;padding:2em;width: 68%;}
+.sidebar-content #secondary{ /* Sidebar 1 */float: left;overflow: hidden;width: 20%;}
+.sidebar-content #tertiary{ /* Sidebar 2 */clear: left;}
+.sidebar-content .site-footer{clear: both;width: 100%;}
