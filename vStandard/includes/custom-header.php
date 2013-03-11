@@ -34,9 +34,9 @@
 function vstandard_custom_header_setup() {
     $args = array(
         'default-image'          => '',
-        'default-text-color'     => 'e9e0e1',
-        'width'                  => 1050,
-        'height'                 => 250,
+        'default-text-color'     => '333333',
+        'width'                  => 960,
+        'height'                 => 100,
         'flex-height'            => true,
         'wp-head-callback'       => 'vstandard_header_style',
         'admin-head-callback'    => 'vstandard_admin_header_style',
@@ -150,7 +150,7 @@ function vstandard_admin_header_style() {
 ?>
     <style type="text/css">
     .appearance_page_custom-header #headimg { /* This is the container for the Custom Header preview. */
-        background: #33605a;
+        background: #EFEFEF;
         border: none;
         min-height: 0 !important
     }
@@ -166,7 +166,7 @@ function vstandard_admin_header_style() {
     }
     #headimg h1 a,
     #desc { 
-        color: #e9e0d1;
+        color: #333333;
         text-decoration: none;
     }
     </style>
