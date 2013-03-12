@@ -5,12 +5,13 @@ Standard vanilla WordPess theme to be used with any new wordpress project
 
 This theme currently has these options available -
 
-* Custom Header
 * Custom Background
+* Custom Header
+* Custom Layout
 
 **Custom Header**
 
-You are able to change the background colour of the header along with colour of the font used. Along with this you are able to upload an image to be used in the header.
+You can access these options by navigating to Appearance->Customize making use of the Customize API introduced with WordPress 3.4, the end user can preview these changes before making them "Live" on their site.
 
 **Custom Background**
 
