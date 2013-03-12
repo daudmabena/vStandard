@@ -9,13 +9,7 @@ This theme currently has these options available -
 * Custom Header
 * Custom Layout
 
-**Custom Header**
-
 You can access these options by navigating to Appearance->Customize making use of the Customize API introduced with WordPress 3.4, the end user can preview these changes before making them "Live" on their site.
-
-**Custom Background**
-
-You are able to change the background and font colour.
 
 **Using This Theme**
 
