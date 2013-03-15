@@ -329,14 +329,33 @@ function vstandard_widgets_end() {
 }
 function vstandard_customize_register($wp_customize) {
 	$wp_customize->add_section(
+	//ID
+	'footer_section',
+	//Arguments Array
+	array(
+		'title' => __('Footer Credits', 'vstandard'),
+		'capability' => 'edit_theme_options',
+		'description' => __('Allows you to show or hide the footer credits', 'vstandard')
+		)
+	);
+	$wp_customize->add_section(
 	// ID
 	'layout_section',
 	// Arguments array
 	array(
-		'title' => __( 'Layout', 'vstandard' ),
+		'title' => __('Layout', 'vstandard'),
 		'capability' => 'edit_theme_options',
-		'description' => __( 'Allows you to edit your theme\'s layout.', 'vstandard' )
+		'description' => __('Allows you to edit your theme\'s layout.', 'vstandard')
 		)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[footer_section]',
+		//Argument array
+		array(
+			'default' => 'content-sidebar',
+			'type' => 'option'
+			)
 	);
 	$wp_customize->add_setting(
 	// ID
@@ -346,6 +365,21 @@ function vstandard_customize_register($wp_customize) {
 		'default' => 'content-sidebar',
 		'type' => 'option'
 		)
+	);
+	$wp_customize->add_control(
+		//ID
+		'footer_control',
+		//Arguments array
+		array(
+			'type' => 'radio',
+			'label' => __('Show Footer Credits', 'vstandard'),
+			'section' => 'footer_section',
+			'choices' => array(
+							'Yes' => __('Yes','vstandard'),
+							'No' => __('No','vstandard')
+							),
+			'settings' => 'vstandard_settings[footer_section]'
+			)
 	);
 	$wp_customize->add_control(
 	// ID
