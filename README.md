@@ -8,6 +8,9 @@ This theme currently has these options available -
 * Custom Background
 * Custom Header
 * Custom Layout
+* Custom Heading Colour
+* Custom Link/Link Hover Colour
+* Custom Border Settings
 * Footer Credits
 
 You can access these options by navigating to Appearance->Customize making use of the Customize API introduced with WordPress 3.4, the end user can preview these changes before making them "Live" on their site.
