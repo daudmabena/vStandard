@@ -327,7 +327,7 @@ function vstandard_widgets() {
 function vstandard_widgets_end() {
     do_action('vstandard_widgets_end');
 }
-function vstandard_customize_register($wp_customize) {
+function vstandard_customize_register($wp_customize){
 	$wp_customize->add_section(
 	//ID
 	'footer_section',
@@ -348,6 +348,88 @@ function vstandard_customize_register($wp_customize) {
 		'description' => __('Allows you to edit your theme\'s layout.', 'vstandard')
 		)
 	);
+	$wp_customize->add_section(
+	// ID
+	'border_section',
+	// Arguments array
+	array(
+		'title' => __('Borders', 'vstandard'),
+		'capability' => 'edit_theme_options',
+		'description' => __('Allows you to edit your theme\'s borders.', 'vstandard')
+		)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[content_background_colors]',
+		//Argument array
+		array(
+			'default' => '#FFFFFF',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[page_title_colors]',
+		//Argument array
+		array(
+			'default' => '#555555',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[blog_title_colors]',
+		//Argument array
+		array(
+			'default' => '#555',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[blog_title_link_colors]',
+		//Argument array
+		array(
+			'default' => '#06c',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[blog_title_link_hover_colors]',
+		//Argument array
+		array(
+			'default' => '#444444',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[sidebar_heading_colors]',
+		//Argument array
+		array(
+			'default' => '#555555',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[link_colors]',
+		//Argument array
+		array(
+			'default' => '#06c',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[link_hover_colors]',
+		//Argument array
+		array(
+			'default' => '#444444',
+			'type' => 'option'
+			)
+	);
 	$wp_customize->add_setting(
 		//ID
 		'vstandard_settings[footer_section]',
@@ -366,19 +448,116 @@ function vstandard_customize_register($wp_customize) {
 		'type' => 'option'
 		)
 	);
+	$wp_customize->add_setting(
+	// ID
+	'vstandard_settings[content_border_setting]',
+	// Arguments array
+	array(
+		'default' => 'content-sidebar',
+		'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'content_background_control',
+			array(
+				'label'      => __('Content Background Color', 'vstandard'),
+				'section'    => 'colors',
+				'settings'   => 'vstandard_settings[content_background_colors]',
+				)
+		) 
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'page_title_color_control',
+			array(
+				'label'      => __('Page Title Color', 'vstandard'),
+				'section'    => 'colors',
+				'settings'   => 'vstandard_settings[page_title_colors]',
+				)
+		) 
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'blog_title_color_control',
+			array(
+				'label'      => __('Blog Title Color', 'vstandard'),
+				'section'    => 'colors',
+				'settings'   => 'vstandard_settings[blog_title_colors]',
+				)
+		) 
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'blog_title_link_color_control',
+			array(
+				'label'      => __('Blog Title Link Color', 'vstandard'),
+				'section'    => 'colors',
+				'settings'   => 'vstandard_settings[blog_title_link_colors]',
+				)
+		) 
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'blog_title_link_hover_color_control',
+			array(
+				'label'      => __('Blog Title Link Hover Color', 'vstandard'),
+				'section'    => 'colors',
+				'settings'   => 'vstandard_settings[blog_title_link_hover_colors]',
+				)
+		) 
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'sidebar_heading_control',
+			array(
+				'label'      => __('Sidebar Heading Color', 'vstandard'),
+				'section'    => 'colors',
+				'settings'   => 'vstandard_settings[sidebar_heading_colors]',
+				)
+		) 
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'link_control',
+			array(
+				'label'      => __('Link Color', 'vstandard'),
+				'section'    => 'colors',
+				'settings'   => 'vstandard_settings[link_colors]',
+				)
+		) 
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'link_hover_control',
+			array(
+				'label'      => __('Link Color Hover', 'vstandard'),
+				'section'    => 'colors',
+				'settings'   => 'vstandard_settings[link_hover_colors]',
+				)
+		) 
+	);
 	$wp_customize->add_control(
 		//ID
 		'footer_control',
 		//Arguments array
 		array(
 			'type' => 'radio',
-			'label' => __('Show Footer Credits', 'vstandard'),
-			'section' => 'footer_section',
+			'label' => __('Show Content Border', 'vstandard'),
+			'section' => 'border_section',
 			'choices' => array(
 							'Yes' => __('Yes','vstandard'),
 							'No' => __('No','vstandard')
 							),
-			'settings' => 'vstandard_settings[footer_section]'
+			'settings' => 'vstandard_settings[content_border_setting]'
 			)
 	);
 	$wp_customize->add_control(
@@ -400,6 +579,21 @@ function vstandard_customize_register($wp_customize) {
 		'settings' => 'vstandard_settings[layout_setting]'
 		)
 	);
+	$wp_customize->add_control(
+		//ID
+		'content_border_control',
+		//Arguments array
+		array(
+			'type' => 'radio',
+			'label' => __('Show Footer Credits', 'vstandard'),
+			'section' => 'footer_section',
+			'choices' => array(
+							'Yes' => __('Yes','vstandard'),
+							'No' => __('No','vstandard')
+							),
+			'settings' => 'vstandard_settings[footer_section]'
+			)
+	);
 }
 add_action('customize_register', 'vstandard_customize_register');
 add_filter( 'body_class', 'my_theme_body_classes' );
@@ -414,4 +608,23 @@ function my_theme_body_classes($classes) {
 	
 	return $classes;
 
+}
+add_action('wp_head', 'add_custom_color');
+function add_custom_color(){
+	$vstandard_settings = get_option('vstandard_settings');	
+	?>
+	<style type="text/css" media="screen">
+	.content-area a, .content-area a:visited, .widget-area a, .widget-area a:visited, .site-footer a, .site-footer a:visited{color:<?php echo $vstandard_settings['link_colors']; ?>;}
+	.content-area a:hover, .widget-area a:hover, .site-footer a:hover{color:<?php echo $vstandard_settings['link_hover_colors']; ?>;}
+	.page .entry-title{color:<?php echo $vstandard_settings['page_title_colors']; ?>;}
+	.post .entry-title{color:<?php echo $vstandard_settings['blog_title_colors']; ?>;}
+	.post .entry-title a{color:<?php echo $vstandard_settings['blog_title_link_colors']; ?>;}
+	.post .entry-title a:hover{color:<?php echo $vstandard_settings['blog_title_link_hover_colors']; ?>;}
+	.site-main{background-color:<?php echo $vstandard_settings['content_background_colors']; ?>;}
+	.widget-title{color:<?php echo $vstandard_settings['sidebar_heading_colors']; ?>;}
+	<?php if($vstandard_settings['content_border_setting'] == 'No'){ ?>
+	.site-main{border:0;}
+	<?php } ?>
+	</style>
+	<?php
 }
