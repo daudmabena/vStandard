@@ -330,6 +330,16 @@ function vstandard_widgets_end() {
 function vstandard_customize_register($wp_customize){
 	$wp_customize->add_section(
 	//ID
+	'home_section',
+	//Arguments Array
+	array(
+		'title' => __('Home Page', 'vstandard'),
+		'capability' => 'edit_theme_options',
+		'description' => __('Allows you to add content to your home page', 'vstandard')
+		)
+	);
+	$wp_customize->add_section(
+	//ID
 	'footer_section',
 	//Arguments Array
 	array(
@@ -357,6 +367,33 @@ function vstandard_customize_register($wp_customize){
 		'capability' => 'edit_theme_options',
 		'description' => __('Allows you to edit your theme\'s borders.', 'vstandard')
 		)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[home_page_title]',
+		//Argument array
+		array(
+			'default' => '',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[home_page_sub_title]',
+		//Argument array
+		array(
+			'default' => '',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[home_content]',
+		//Argument array
+		array(
+			'default' => '',
+			'type' => 'option'
+			)
 	);
 	$wp_customize->add_setting(
 		//ID
@@ -458,6 +495,42 @@ function vstandard_customize_register($wp_customize){
 		)
 	);
 	$wp_customize->add_control(
+	// ID
+	'home_title_control',
+	// Arguments array
+	array(
+		'type' => 'text',
+		'label' => __( 'Home Page Title', 'vstandard' ),
+		'section' => 'home_section',
+		// This last one must match setting ID from above
+		'settings' => 'vstandard_settings[home_page_title]'
+		)
+	);
+	$wp_customize->add_control(
+	// ID
+	'home_sub_title_control',
+	// Arguments array
+	array(
+		'type' => 'text',
+		'label' => __( 'Home Page Sub-Title', 'vstandard' ),
+		'section' => 'home_section',
+		// This last one must match setting ID from above
+		'settings' => 'vstandard_settings[home_page_sub_title]'
+		)
+	);
+	$wp_customize->add_control(
+	// ID
+	'home_content_control',
+	// Arguments array
+	array(
+		'type' => 'textarea',
+		'label' => __( 'Home Page Content', 'vstandard' ),
+		'section' => 'home_section',
+		// This last one must match setting ID from above
+		'settings' => 'vstandard_settings[home_content]'
+		)
+	);
+	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize,
 			'content_background_control',
@@ -465,6 +538,7 @@ function vstandard_customize_register($wp_customize){
 				'label'      => __('Content Background Color', 'vstandard'),
 				'section'    => 'colors',
 				'settings'   => 'vstandard_settings[content_background_colors]',
+				'priority'   => 105
 				)
 		) 
 	);
@@ -476,6 +550,7 @@ function vstandard_customize_register($wp_customize){
 				'label'      => __('Page Title Color', 'vstandard'),
 				'section'    => 'colors',
 				'settings'   => 'vstandard_settings[page_title_colors]',
+				'priority'   => 98
 				)
 		) 
 	);
@@ -487,6 +562,7 @@ function vstandard_customize_register($wp_customize){
 				'label'      => __('Blog Title Color', 'vstandard'),
 				'section'    => 'colors',
 				'settings'   => 'vstandard_settings[blog_title_colors]',
+				'priority'   => 99
 				)
 		) 
 	);
@@ -498,6 +574,7 @@ function vstandard_customize_register($wp_customize){
 				'label'      => __('Blog Title Link Color', 'vstandard'),
 				'section'    => 'colors',
 				'settings'   => 'vstandard_settings[blog_title_link_colors]',
+				'priority'   => 100
 				)
 		) 
 	);
@@ -509,6 +586,7 @@ function vstandard_customize_register($wp_customize){
 				'label'      => __('Blog Title Link Hover Color', 'vstandard'),
 				'section'    => 'colors',
 				'settings'   => 'vstandard_settings[blog_title_link_hover_colors]',
+				'priority'   => 101
 				)
 		) 
 	);
@@ -520,6 +598,7 @@ function vstandard_customize_register($wp_customize){
 				'label'      => __('Sidebar Heading Color', 'vstandard'),
 				'section'    => 'colors',
 				'settings'   => 'vstandard_settings[sidebar_heading_colors]',
+				'priority'   => 102
 				)
 		) 
 	);
@@ -531,6 +610,7 @@ function vstandard_customize_register($wp_customize){
 				'label'      => __('Link Color', 'vstandard'),
 				'section'    => 'colors',
 				'settings'   => 'vstandard_settings[link_colors]',
+				'priority'   => 103
 				)
 		) 
 	);
@@ -542,6 +622,7 @@ function vstandard_customize_register($wp_customize){
 				'label'      => __('Link Color Hover', 'vstandard'),
 				'section'    => 'colors',
 				'settings'   => 'vstandard_settings[link_hover_colors]',
+				'priority'   => 104
 				)
 		) 
 	);

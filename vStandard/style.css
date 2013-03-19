@@ -152,6 +152,10 @@ body.search .page-title,body.archive .page-title{font-size:16px;font-size:1.6rem
 .entry-content tr td,.comment-content tr td{border:1px solid #d9d9d9;border-width:1px 0 0 1px;padding:0.5em 1.25em;}
 .entry-content tr.odd td,.comment-content tr.odd td{background:#dfd6c7;}
 .page-links{clear:both;margin:0 0 1.5em;}
+/* =Home Page 
+----------------------------------------------- */
+.col-940{width:100%;}
+.col-460{width:48.936170212766%;}
 /* =Aside Post Format
 ----------------------------------------------- */
 .format-aside .entry-content{border-left:4px solid rgba( 0, 0, 0, 0.1 );padding-left:1em;}
@@ -265,6 +269,7 @@ p.nocomments{margin:2.5em;}
 .top-widget #searchform{margin:0;}
 .featured-title{font-size:60px;letter-spacing:-1px;margin:0;padding-top:40px;text-align:center;}
 .featured-subtitle{padding:0 10px;text-align:center;}
+#featured p{font-size: 18px;font-weight: 200;line-height: 27px;padding: 0 40px 0 40px;text-align: center;}
 .widget-title, .widget-title-home h3{display:block;font-size:24px;font-weight:700;line-height:23px;margin:0;padding:0 0 20px;text-align:left;}
 .top-widget .widget-title{font-size:14px;padding:0;text-align:right;}
 .widget-title a{border-bottom:medium none;padding:0 !important;}
