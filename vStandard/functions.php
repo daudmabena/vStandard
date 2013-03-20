@@ -523,8 +523,8 @@ function vstandard_customize_register($wp_customize){
 	'home_content_control',
 	// Arguments array
 	array(
-		'type' => 'textarea',
-		'label' => __( 'Home Page Content', 'vstandard' ),
+		'type' => 'text',
+		'label' => __('Home Page Content', 'vstandard'),
 		'section' => 'home_section',
 		// This last one must match setting ID from above
 		'settings' => 'vstandard_settings[home_content]'

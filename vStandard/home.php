@@ -39,10 +39,10 @@ get_header(); ?>
 				    		echo '</h2>';
 				  		}
 						// First let's check if content is in place
-			    		if(!empty($vstandard_settings['home_content_area'])){
+			    		if(!empty($vstandard_settings['home_content'])){
                     		echo '<p>'; 
 							// The end user is able to add plugin short codes to this area
-							echo do_shortcode($vstandard_settings['home_content_area']);
+							echo do_shortcode($vstandard_settings['home_content']);
 				    		echo '</p>'; 
 						// If not let's show dummy content for demo purposes
 			      		}else{
@@ -51,6 +51,22 @@ get_header(); ?>
 				    		echo '</p>';
 				  		}
 						?>
+						    
+            				<div class="call-to-action">
+            					<?php
+            					// First let's check if headline was set
+			    				if(!empty($vstandard_settings['cta_url']) && $options['cta_text']){
+									echo '<a href="'.$vstandard_settings['cta_url'].'" class="blue button">'; 
+									echo $vstandard_settings['cta_text'];
+				    				echo '</a>';
+									// If not display dummy headline for preview purposes
+			      				}else{ 
+									echo '<a href="#nogo" class="blue button">'; 
+									echo __('Call to Action','vstandard');
+				    				echo '</a>';
+				  				}
+								?>
+							</div><!-- end of .call-to-action -->
 				 	</div><!-- end of .col-460 -->
 				 </div><!-- end of #featured -->
 <?php get_sidebar('home'); ?>
