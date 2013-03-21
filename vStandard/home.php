@@ -51,23 +51,37 @@ get_header(); ?>
 				    		echo '</p>';
 				  		}
 						?>
-						    
-            				<div class="call-to-action">
-            					<?php
-            					// First let's check if headline was set
-			    				if(!empty($vstandard_settings['cta_url']) && $options['cta_text']){
-									echo '<a href="'.$vstandard_settings['cta_url'].'" class="blue button">'; 
-									echo $vstandard_settings['cta_text'];
-				    				echo '</a>';
-									// If not display dummy headline for preview purposes
-			      				}else{ 
-									echo '<a href="#nogo" class="blue button">'; 
-									echo __('Call to Action','vstandard');
-				    				echo '</a>';
-				  				}
+						<div class="call-to-action">
+            				<?php
+            				// First let's check if headline was set
+			    			if(!empty($vstandard_settings['home_content_cta_url']) && $vstandard_settings['home_content_cta_text']){
+								echo '<a href="'.$vstandard_settings['home_content_cta_url'].'" class="blue button">'; 
+								echo $vstandard_settings['home_content_cta_text'];
+				    			echo '</a>';
+								// If not display dummy headline for preview purposes
+			      			}else{ 
+								echo '<a href="#nogo" class="blue button">'; 
+								echo __('Call to Action','vstandard');
+				    			echo '</a>';
+				  			}
 								?>
-							</div><!-- end of .call-to-action -->
+						</div><!-- end of .call-to-action -->
 				 	</div><!-- end of .col-460 -->
+				 	<div id="featured-image" class="grid col-460 fit"> 
+                           
+            <?php
+			// First let's check if image was set
+			    if (!empty($vstandard_settings['home_page_image'])) {
+					?>
+					<img src="<?php echo do_shortcode($vstandard_settings['home_page_image']); ?>" alt="Home Page Advertising Image" class="aligncenter" />
+					<?php
+		    // If not display dummy image for preview purposes
+			      } else {             
+                    echo '<img class="aligncenter" src="'.get_site_url().'/wp-content/themes/vStandard/images/time.png" alt="Home Page Advertising Image" />'; 
+ 				  }
+			?> 
+                                   
+        </div><!-- end of #featured-image -->
 				 </div><!-- end of #featured -->
 <?php get_sidebar('home'); ?>
 <?php get_footer(); ?>

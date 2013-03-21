@@ -339,6 +339,7 @@ p.nocomments{margin:2.5em;}
 .featured-title{font-size:60px;letter-spacing:-1px;margin:0;padding-top:40px;text-align:center;}
 .featured-subtitle{padding:0 10px;text-align:center;}
 #featured p{font-size: 18px;font-weight: 200;line-height: 27px;padding: 0 40px 0 40px;text-align: center;}
+#featured-image{margin-top:40px}
 .widget-title, .widget-title-home h3{display:block;font-size:24px;font-weight:700;line-height:23px;margin:0;padding:0 0 20px;text-align:left;}
 .top-widget .widget-title{font-size:14px;padding:0;text-align:right;}
 .widget-title a{border-bottom:medium none;padding:0 !important;}

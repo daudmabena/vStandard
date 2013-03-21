@@ -388,6 +388,33 @@ function vstandard_customize_register($wp_customize){
 	);
 	$wp_customize->add_setting(
 		//ID
+		'vstandard_settings[home_content_cta_text]',
+		//Argument array
+		array(
+			'default' => '',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[home_content_cta_url]',
+		//Argument array
+		array(
+			'default' => '',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
+		'vstandard_settings[home_page_image]',
+		//Argument array
+		array(
+			'default' => '',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_setting(
+		//ID
 		'vstandard_settings[home_content]',
 		//Argument array
 		array(
@@ -528,6 +555,41 @@ function vstandard_customize_register($wp_customize){
 		'section' => 'home_section',
 		// This last one must match setting ID from above
 		'settings' => 'vstandard_settings[home_content]'
+		)
+	);
+	$wp_customize->add_control(
+	// ID
+	'home_content_cta_text',
+	// Arguments array
+	array(
+		'type' => 'text',
+		'label' => __('Call to Action Text', 'vstandard'),
+		'section' => 'home_section',
+		// This last one must match setting ID from above
+		'settings' => 'vstandard_settings[home_content_cta_text]'
+		)
+	);
+	$wp_customize->add_control(
+	// ID
+	'home_content_cta_url',
+	// Arguments array
+	array(
+		'type' => 'text',
+		'label' => __('Call to Action URL', 'vstandard'),
+		'section' => 'home_section',
+		// This last one must match setting ID from above
+		'settings' => 'vstandard_settings[home_content_cta_url]'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'home_content_image',
+			array(
+				'label'		=> __('Home Page Image', 'vstandard'),
+				'section'	=> 'home_section',
+				'settings'	=> 'vstandard_settings[home_page_image]'
+			)
 		)
 	);
 	$wp_customize->add_control(
