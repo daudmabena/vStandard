@@ -18,9 +18,27 @@ You can access these options by navigating to Appearance->Customize making use o
 
 **Using This Theme**
 
-* Download the vStandard and vStandard-child folders to your theme folder directory within WordPress.
+* Download the vStandard theme to your theme folder directory within WordPress.
 * Activate the vStandard-child theme. 
 * Only make changes to the Stylesheet in the **vStandard-child** folder.
+
+**Create Child Theme**
+
+Create a new folder in your themes directory. Name this folder vStandard-Child. In this folder create a file called style.css Add the following code to this file -
+
+```css
+/*
+Theme Name: vStandard Child
+Author:Rory Standley
+Author URI:http://www.rstandley.co.uk
+Description: Child theme for vStandard.
+Template: vStandard
+Version: 1.0.0
+*/
+@import url("../vStandard/style.css");
+```
+
+Any CSS changes that you need to make should be made in this file. If you need to change core files of the parent theme. Simply create the same named file in the vStandard-Child folder and edit thsi file. If the parent theme is updated then all your editing will not be lost!
 
 **Custom Templates**
 
