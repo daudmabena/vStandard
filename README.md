@@ -17,6 +17,7 @@ This theme currently has these options available -
 You can access these options by navigating to Appearance->Customize making use of the Customize API introduced with WordPress 3.4, the end user can preview these changes before making them "Live" on their site.
 
 **Using This Theme**
+--
 
 * Download the vStandard theme to your theme folder directory within WordPress.
 * Activate the vStandard-child theme. 
@@ -41,6 +42,7 @@ Version: 1.0.0
 Any CSS changes that you need to make should be made in this file. If you need to change core files of the parent theme. Simply create the same named file in the vStandard-Child folder and edit thsi file. If the parent theme is updated then all your editing will not be lost!
 
 **Custom Templates**
+--
 
 This theme currently has the following custom templates available -
 
