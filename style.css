@@ -30,7 +30,7 @@ a img{border:0;}
 ----------------------------------------------- */
 body,button,input,select,textarea{color:#555;font-family:Arial,Helvetica,sans-serif;font-size:14px;/*font-size:1.6rem;*/line-height:1.5em;}
 body{background:#EFEFEF;-moz-font-smoothing:antialiased;-webkit-font-smoothing:antialiased;font-family:Arial, Helvetica, sans-serif;font-size:14px;font-smoothing:antialiased;line-height:1.5em;text-rendering:optimizeLegibility;}
-/* Headings */h1,h2,h3,h4,h5,h6{clear:both;margin:0.6em 0;font-weight:700;line-height:1.0em;word-wrap:break-word;}
+/* Headings */h1,h2,h3,h4,h5,h6{margin:0.6em 0;font-weight:700;line-height:1.0em;word-wrap:break-word;}
 h1{font-size:36px;font-size:3.6rem;}
 h2{font-size:28px;font-size:2.8rem;}
 h3{font-size:22px;font-size:2.2rem;}
