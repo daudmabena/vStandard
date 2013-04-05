@@ -57,3 +57,6 @@ This theme currently has the following widgets areas -
 * Home Widget 1 (Home Page Widget footer 1)
 * Home Widget 2 (Home Page Widget footer 2)
 * Home Widget 3 (Home Page Widget footer 3)
+* Footer Widget 1 (Global Widget footer 1)
+* Footer Widget 2 (Global Widget footer 2)
+* Footer Widget 3 (Global Widget footer 3)

@@ -8,7 +8,7 @@
 * @since vStandard 1.0
 */
 ?>
- 
+<?php get_sidebar('footer'); ?>
 </div><!-- #main .site-main -->
 <footer id="colophon" class="site-footer" role="contentinfo">
 	<?php

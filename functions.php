@@ -100,6 +100,33 @@ function vstandard_widgets_init() {
             'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
             'after_widget' => '</div>'
         ));
+        
+        register_sidebar( array(
+        	'name' => __( 'Footer Widget 1', 'vstandard' ),
+        	'id' => 'footer-1',
+        	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        	'after_widget' => '</aside>',
+        	'before_title' => '<h1 class="widget-title">',
+        	'after_title' => '</h1>',
+    	));
+    	
+    	register_sidebar( array(
+        	'name' => __( 'Footer Widget 2', 'vstandard' ),
+        	'id' => 'footer-2',
+        	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        	'after_widget' => '</aside>',
+        	'before_title' => '<h1 class="widget-title">',
+        	'after_title' => '</h1>',
+    	));
+		
+		register_sidebar( array(
+        	'name' => __( 'Footer Widget 3', 'vstandard' ),
+        	'id' => 'footer-3',
+        	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        	'after_widget' => '</aside>',
+        	'before_title' => '<h1 class="widget-title">',
+        	'after_title' => '</h1>',
+    	));
 }
 add_action( 'widgets_init', 'vstandard_widgets_init' );
 /**
