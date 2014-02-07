@@ -3,24 +3,23 @@
  * The Template for displaying all single posts.
  * 
  * @package vStandard
- * @since vStandard 1.0
+ * @since vStandard 2.0
  */
  
 get_header(); ?>	
-				<div id="primary" class="content-area">
-					<?php echo vstandard_breadcrumb_lists(); ?>
-					<div id="content" class="site-content" role="main">
-						<?php while(have_posts()) : the_post(); ?>
-							<?php //vstandard_content_nav( 'nav-above' ); ?>
-							<?php get_template_part('content', 'single'); ?>
-							<?php vstandard_content_nav('nav-below'); ?>
-							<?php
-							// If comments are open or we have at least one comment, load up the comment template
-							if(comments_open() || '0' != get_comments_number())
-								comments_template( '', true );
-							?>
-						<?php endwhile; // end of the loop. ?>
- 	        	    </div><!-- #content .site-content -->
-    		    </div><!-- #primary .content-area -->
+<div class="section group">
+	<div class="col span_5_of_8">
+		<?php if(have_posts()) : ?>
+			<?php /* Start the Loop */ ?>
+			<?php while (have_posts()) : the_post(); ?>
+				<?php get_template_part('content', 'single');	?>
+				<?php comments_template('', true); ?>
+			<?php endwhile; ?>
+		<?php else : ?>
+ 			<?php //get_template_part('no-results','index'); ?>
+		<?php endif; ?>
+	</div>
+	<?php get_template_part("sidebar"); ?>
+</div>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

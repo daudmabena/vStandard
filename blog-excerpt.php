@@ -9,7 +9,7 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package vStandard
- * @since vStandard 1.0
+ * @since vStandard 2.0
  * Template Name: Blog Excerpt (summary)
  */
 get_header(); ?>	

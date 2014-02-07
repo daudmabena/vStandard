@@ -3,18 +3,13 @@
 * The Sidebar containing the main widget areas.
 *
 * @package vStandard
-* @since vStandard 1.0
+* @since vStandard 2.0
 */
 ?>
-<!-- 1st Widget Area -->
-<?php if(is_active_sidebar('sidebar-1')): ?>
-	<div id="secondary" class="widget-area" role="complementary">
-		<?php dynamic_sidebar('sidebar-1'); ?>
-	</div><!-- #secondary .widget-area -->
-<?php endif; ?>
-<!-- 2nd Widget Area -->
-<?php if(is_active_sidebar('sidebar-2')): ?>
-	<div id="tertiary" class="widget-area" role="supplementary">
-     	<?php dynamic_sidebar('sidebar-2'); ?>
-	</div><!-- #tertiary .widget-area -->
-<?php endif; ?>
+<div class="col span_3_of_8">
+	<?php vstandard_widgets(); // above widgets hook ?>
+        <?php if (!dynamic_sidebar('side-bar')) : ?>
+        <?php endif; //end of footer-3 ?>
+    <?php vstandard_widgets_end(); // after widgets hook ?>
+    <br class="breaker" />
+</div>

@@ -5,27 +5,48 @@
 * Contains the closing of the id=main div and all content after
 *
 * @package vStandard
-* @since vStandard 1.0
+* @since vStandard 2.0
 */
 ?>
-<?php get_sidebar('footer'); ?>
-</div><!-- #main .site-main -->
-<footer id="colophon" class="site-footer" role="contentinfo">
-	<?php
-	$vstandard_footer_settings = get_option('vstandard_settings');	
-	if($vstandard_footer_settings['footer_section'] == "Yes"){
-	?>
-    <div class="site-info">
-        <?php do_action('vstandard_credits'); ?>
-        <a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'vstandard' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'vstandard'), 'WordPress'); ?></a>
-        <span class="sep"> | </span>
-        <?php printf( __('Theme: %1$s by %2$s.', 'vstandard' ), 'vStandard', '<a href="http://www.rstandley.co.uk/" rel="designer">Rory Standley</a>'); ?>
-    </div><!-- .site-info -->
-    <?php
-	}
-    ?>
-</footer><!-- #colophon .site-footer -->
-</div><!-- #page .hfeed .site -->
 <?php wp_footer(); ?>
+        </div><!-- /maincontent -->
+            <div id="footercontainer">
+                <footer class="group">
+                    <div class="col span_1_of_3 footer-widget">
+                    <?php vstandard_widgets(); // above widgets hook ?>
+                        <?php if (!dynamic_sidebar('footer-1')) : ?>
+                        <?php endif; //end of footer-1 ?>
+                    <?php vstandard_widgets_end(); // after widgets hook ?>
+                    </div>
+                    <div class="col span_1_of_3 footer-widget">
+                    <?php vstandard_widgets(); // above widgets hook ?>
+                        <?php if (!dynamic_sidebar('footer-2')) : ?>
+                        <?php endif; //end of footer-2 ?>
+                    <?php vstandard_widgets_end(); // after widgets hook ?>
+                    </div>
+                    <div class="col span_1_of_3 footer-widget">
+                    <?php vstandard_widgets(); // above widgets hook ?>
+                        <?php if (!dynamic_sidebar('footer-3')) : ?>
+                        <?php endif; //end of footer-3 ?>
+                    <?php vstandard_widgets_end(); // after widgets hook ?>
+                    </div>
+                </footer>
+            </div><!-- /footercontaine-->
+            <div id="smallprintcontainer">
+                    <div class="section group">
+                        <div class="col span_1_of_2">
+                            <?php vstandard_widgets(); // above widgets hook ?>
+                                <?php if (!dynamic_sidebar('small-print')) : ?>
+                                <?php endif; //end of small-print ?>
+                            <?php vstandard_widgets_end(); // after widgets hook ?>
+                        </div>
+                        <div class="col span_1_of_2 rory">
+                            Developed by <a href="http://www.rstandley.co.uk" target="_blank">Rory Standley</a>
+                        </div>
+                    </div>
+                </div><!-- /smallprint -->
+            </div><!-- /smalprintcontainer -->
+        </div><!-- /maincontentcontainer -->
+    </div><!-- /wrapper -->
 </body>
 </html>
